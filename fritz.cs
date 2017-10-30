@@ -38,6 +38,7 @@ namespace fritz {
       // SessionID ermitteln 
       string sid = fritz.GetSessionId(); 
       Console.WriteLine("sid="+sid);
+      // see https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/AHA-HTTP-Interface.pdf
       string seite = fritz.ReadPage(@"/webservices/homeautoswitch.lua?switchcmd=getswitchlist", sid); 
       Console.WriteLine(seite);      
    } 
