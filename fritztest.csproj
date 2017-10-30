@@ -1,6 +1,17 @@
+<!-- 
+ WF 2017-10-30
+ manually created .csproj file
+ see https://stackoverflow.com/questions/33824789/nunit-console-what-is-expected-in-csproj-file
+-->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">  
   <ItemGroup>  
     <Compile Include="fritztest.cs" />  
+  </ItemGroup>  
+  <ItemGroup>  
+    <Reference Include="System" />
+    <Reference Include="NUnit">
+      <HintPath>.\NUnit.3.8.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
   </ItemGroup>  
   <Target Name="Build">  
     <Csc Sources="@(Compile)"/>    
