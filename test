@@ -1,0 +1,5 @@
+#!/bin/bash
+# WF 2017-10-30
+ncr=NUnit.ConsoleRunner.3.7.0
+export MONO_PATH=$(PWD)/$ncr/tools/:
+mono $ncr/tools/nunit3-console.exe FritzTest.dll -noresult

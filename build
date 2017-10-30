@@ -1,0 +1,8 @@
+#!/bin/bash
+# WF 2017-10-30
+#
+# uncomment the following lines once
+nuget install Nunit
+nuget install NUnit.Runners
+mcs /reference:System.Xml.Linq.dll /reference:System.Windows.Forms.dll fritz.cs
+mcs fritztest.cs -target:library /reference:Fritz.exe /reference:NUnit.3.8.1/lib/net45/nunit.framework.dll -out:FritzTest.dll
