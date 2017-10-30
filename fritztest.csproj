@@ -4,14 +4,15 @@
  see https://stackoverflow.com/questions/33824789/nunit-console-what-is-expected-in-csproj-file
 -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">  
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net45</TargetFramework>
+  </PropertyGroup>
   <ItemGroup>  
-    <Compile Include="fritztest.cs" />  
+    <PackageReference Include="NUnit" Version="3.8.1"/>
   </ItemGroup>  
   <ItemGroup>  
-    <Reference Include="System" />
-    <Reference Include="NUnit">
-      <HintPath>.\NUnit.3.8.1\lib\net45\nunit.framework.dll</HintPath>
-    </Reference>
+    <Compile Include="fritztest.cs" />  
   </ItemGroup>  
   <Target Name="Build">  
     <Csc Sources="@(Compile)"/>    
