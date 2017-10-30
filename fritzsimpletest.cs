@@ -6,6 +6,7 @@ using fritz;
 public class FritzTest
 {
 	  Fritz fritz;
+	  int errors=0;
 	  
 	  public FritzTest() {
 	  	 fritz=new Fritz();
@@ -23,9 +24,11 @@ public class FritzTest
 	  	  Console.ForegroundColor = ConsoleColor.Green;
 	  	  Console.WriteLine(md5);
 	  	} else {
+	  		errors++;
 	  	  Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine(md5+"!="+expected);
       }
+      Console.ForegroundColor=ConsoleColor.Black;
 	  }
 	  
 	  public void runTests() {
@@ -36,6 +39,9 @@ public class FritzTest
        // https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/AVM_Technical_Note_-_Session_ID.pdf
 	     checkMd5("1234567z-äbc", "9e224a41eeefa284df7bb0f26c2913e2");
 	     checkMd5("!\"§$%&/()=?ßüäöÜÄÖ-.,;:_`´+*#'<>≤|","ad44a7cb10a95cb0c4d7ae90b0ff118a");
+	     string sid = fritz.GetSessionId(); 
+	     Console.WriteLine("sid="+sid);
+	     Console.WriteLine(string.Format("{0} errors found",errors));
     }
 	  
     /**
